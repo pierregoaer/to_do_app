@@ -1,0 +1,108 @@
+* {
+	margin: 0;
+	padding: 0;
+	font-family: courier;
+	text-decoration: none;
+}
+
+body {
+    background-color: #E6FFFDD9;
+}
+
+.wrapper {
+	border-radius: 15px;
+	background-color: PaleTurquoise;
+	max-width: 800px;
+	margin: 50px auto;
+	padding: 50px;
+}
+
+/*
+.lists_wrapper{
+    display: flex;
+    justify-content: space-around;
+}
+*/
+
+h1 {
+    text-align: center;
+    margin-bottom: 50px;
+}
+
+.add_to_do_wrapper {
+	margin-bottom: 30px;
+}
+
+.add_to_do_wrapper p {
+    margin-bottom: 10px;
+}
+
+input[type=text] {
+    border:none;
+    padding: 7px 8px 5px 8px;
+    border-radius: 15px
+}
+
+input[type=submit] {
+    background-color: brown;
+    color: white;
+    border:none;
+    padding: 6px 15px 4px 15px;
+    border-radius: 5px
+}
+
+input[type=submit]:hover {
+    cursor: pointer;
+    background-color: rgba(178, 17, 24, 0.8);
+}
+
+
+.to_do_list,
+.done_list {
+    margin-bottom: 60px
+}
+
+.title {
+    margin-bottom: 10px;
+}
+
+.list_item {
+	margin-bottom: 20px;
+}
+
+.list_item .checkbox {
+    font-size: 1rem;
+    background-color: white;
+    padding: 4px 0px 1px 9px;
+    border-radius: 5px;
+    text-decoration: none;
+    color: brown;
+    margin-right: 10px;
+}
+
+.to_do_item input {
+	margin-right: 5px;
+}
+
+
+.list_item .to_do_date {
+    font-size: 0.7rem;
+    font-style: italic;
+    color: grey;
+    margin-right: 5px;
+}
+
+.done_item .to_do_name {
+	display: inline;
+	text-decoration: line-through;
+}
+
+.list_item .command {
+    display: inline-block;
+    padding: 2px 5px 1px 5px;
+    background-color: grey;
+    font-size: 0.7rem;
+    border-radius: 5px;
+    text-decoration: none;
+    color: white;
+}

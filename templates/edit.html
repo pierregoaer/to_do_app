@@ -1,0 +1,22 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>To-do List</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}"/>
+    <script src="https://kit.fontawesome.com/0b43836304.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="wrapper">
+    <div class="add_to_do_wrapper">
+        <p>Edit your To-Do item: {{ to_do.to_do}} - {{ to_do.date.month }}/{{ to_do.date.day }}/{{ to_do.date.year }}</p>
+        <form action="{{url_for('edit_success', to_do_id=to_do.id) }}" method="post" class="form-example">
+            <input type="text" name="edit_to_do" id="name" value="{{ to_do.to_do}}" size="40" required/>
+            <input type="date" name="to_do_date" value="{{ today }}" required>
+            <input type="submit" value="Edit To-Do"/>
+        </form>
+    </div>
+</div>
+</body>
+</html>

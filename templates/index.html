@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+
+<html lang="en">
+<head>
+    <meta charset="UTF-8"/>
+    <title>To-do List</title>
+    <link rel="stylesheet" type="text/css" href="{{ url_for('static',filename='styles/style.css') }}"/>
+    <script src="https://kit.fontawesome.com/0b43836304.js" crossorigin="anonymous"></script>
+</head>
+<body>
+<div class="wrapper">
+    <h1>Welcome to To-Do</h1>
+    <div class="add_to_do_wrapper">
+        <p>Add a new To-Do item to your list:</p>
+        <form action="/add_to_do" method="post" class="form-example">
+            <input type="text" name="new_to_do" id="name" placeholder="New To-Do" size="40" required/>
+            <input type="date" name="to_do_date" value="{{ today }}" required/>
+            <input type="submit" value="Add To-Do"/>
+        </form>
+    </div>
+    <div class="lists_wrapper">
+        <div class="to_do_list">
+            <h2 class="title to_do_title">To-Do: {{ to_dos_left }}</h2>
+
+            {%for to_do in to_dos %}
+            {% if to_do.checked == False %}
+            <div class="list_item to_do_item">
+<!--                <a href="{{url_for('update_item', to_do_id=to_do.id) }}">-->
+<!--                    <input type="checkbox" unchecked/>-->
+<!--                </a>-->
+                <a href="{{url_for('update_item', to_do_id=to_do.id) }}" class="checkbox">
+                    <i class="fa-regular fa-square"></i>
+                </a>
+                <span class="to_do_name">{{ to_do.to_do }}</span>
+                <span class="to_do_date">{{ to_do.date.month }}/{{ to_do.date.day }}/{{ to_do.date.year }}</span>
+                <a href="{{url_for('edit_item_form', to_do_id=to_do.id) }}" class="command">Edit</a>
+                <a href="{{url_for('delete_item', to_do_id=to_do.id) }}" class="command">Delete</a>
+            </div>
+            {% endif %}
+            {%endfor%}
+        </div>
+
+        <div class="done_list">
+            <h2 class="title done_title">Done: {{ to_dos_done }}</h2>
+
+            {%for to_do in to_dos %}
+            {% if to_do.checked == True %}
+            <div class="list_item done_item">
+<!--                <a href="{{url_for('update_item', to_do_id=to_do.id) }}">-->
+<!--                    <input type="checkbox"checked/>-->
+<!--                </a>-->
+                <a href="{{url_for('update_item', to_do_id=to_do.id) }}" class="checkbox">
+                    <i class="fa-regular fa-square-check"></i> Undo
+                </a>
+                <span class="to_do_name">{{ to_do.to_do }}</span>
+                <span class="to_do_date">{{ to_do.date.month }}/{{ to_do.date.day }}/{{ to_do.date.year }}</span>
+                <a href="{{url_for('edit_item_form', to_do_id=to_do.id) }}" class="command">Edit</a>
+                <a href="{{url_for('delete_item', to_do_id=to_do.id) }}" class="command">Delete</a>
+            </div>
+            {% endif %}
+            {%endfor%}
+        </div>
+    </div>
+</div>
+</body>
+</html>
